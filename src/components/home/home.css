@@ -62,6 +62,10 @@
     outline: none;
     white-space: nowrap;
 }
+.btn-wrap span:hover {
+    color: #00f;
+    background: #fff;
+}
 .btn-wrap a {
     margin-left: auto;
 }
