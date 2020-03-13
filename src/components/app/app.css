@@ -1,0 +1,28 @@
+body,
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    color: #161a20;
+}
+
+
+.container {
+    max-width: 1640px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    letter-spacing: 0.0625rem;
+}
+
+@media screen and (max-width: 1660px) {
+    .container {
+        padding: 0 20px;
+    }
+}

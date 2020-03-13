@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 48px solid #00264b;
+}
+.header .headerLink {
+    text-decoration: none;
+}
+.header i {
+    font-size: 1.5625rem;
+    color: #00264b;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.header i:hover {
+    color: #00f;
+}
+.title-logo-wrap {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.title-logo-wrap:hover span {
+    color: blue;
+}
+.logo-wrap {
+
+}
+.logo-wrap img {
+    max-width: 36px;
+}
+.icons-wrap {}

@@ -1,0 +1,78 @@
+.home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.homeItemWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.homeItemWrap h3 {
+    background-color: #00264b;
+    color: #fff;
+    padding: 5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.homeItemWrap ul {
+    flex-grow: 1;
+    list-style-type: none;
+}
+.homeItemWrap ul li {
+    padding: 10px 0;
+}
+.homeItemWrap ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.homeItemWrap ul li:hover a,
+.homeItemWrap ul li:hover span {
+    color: #00f;
+}
+.homeItemWrap ul li i {
+    color: #00f;
+    margin-left: 10px;
+}
+.btn-wrap {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+.btn-wrap span {
+    font-weight: bold;
+    margin-left: 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #00f;
+    border: 1px solid #00f;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    font-size: 12px;
+    padding: 12px 25px 10px 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+}
+.btn-wrap a {
+    margin-left: auto;
+}
+
+.btn-wrap span:before {
+    content: '';
+    display: block;
+    width: 100%;
+    border-top: 2px dashed rgba(103, 116, 129, 0.8);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: -1;
+}
