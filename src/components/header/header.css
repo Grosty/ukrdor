@@ -1,8 +1,22 @@
 .header {
+}
+.header-top {
+    background-color: #00264b;
+}
+.header-lang-wrap {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.header-lang-wrap button {
+    margin-left: 10px;
+}
+.header-bottom {
+    display: flex;
     justify-content: space-between;
-    border-top: 48px solid #00264b;
+    align-items: center;
 }
 .header .headerLink {
     text-decoration: none;
