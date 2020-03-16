@@ -69,7 +69,7 @@
     white-space: nowrap;
 }
 .details-road .btn-about {
-
+    margin-left: auto;
 }
 .details-road button:hover,
 .details-road .linkHome:hover {
@@ -135,6 +135,9 @@
 .modalDetailsContent .modalDetailsDots,
 .modalDetailsContent .modalDetailsType {
     margin-bottom: 10px;
+}
+.modalDetailsDots span {
+    font-weight: bold;
 }
 .details-road .modalDetailsContent table {
     border-collapse: collapse;

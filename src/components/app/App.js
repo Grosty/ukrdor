@@ -19,7 +19,6 @@ class App extends Component {
     };
 
     render() {
-        console.log(this.state.lang);
         return (
             <BrowserRouter >
                 <Routes {...this.state} toggleLang={this.toggleLang}/>

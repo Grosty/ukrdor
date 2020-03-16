@@ -46,7 +46,6 @@ class Home extends Component {
 
         const {categoriesArr, language} = this.state;
 
-        console.log(language, 'home');
 
         categoriesArr.sort((a, b)=> a.id - b.id);
 

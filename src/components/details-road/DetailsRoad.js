@@ -48,7 +48,7 @@ class DetailsRoad extends Component {
     render() {
 
         const {
-            routeDetailsId,
+            // routeDetailsId,
             routeDetailsType,
             routeDetailsName,
             routeDetailsSc,
@@ -58,12 +58,13 @@ class DetailsRoad extends Component {
             language
         } = this.state;
 
+        const isLangUa = (language === 'uk') && true;
+
         // const tBody = routeDetailsOwners.map((item)=>{
         //     return <p>tBody item</p>
         // });
 
         return (
-
 
             <section className="container details-road">
 
@@ -74,23 +75,23 @@ class DetailsRoad extends Component {
                             <span>{routeDetailsSc}</span>
                             {routeDetailsName} </div>
                         <div  className="modalDetailsType">{routeDetailsType}</div>
-                        <div  className="modalDetailsDots">{(language === 'uk') ? 'Початок дороги км, м' : 'Road start ' }<span>{routeDetailsDots[0]}</span> </div>
-                        <div  className="modalDetailsDots">{(language === 'uk') ?'Кінець дороги км, м ' : 'Road end '}<span>{routeDetailsDots[routeDetailsDots.length - 1]}</span> </div>
+                        <div  className="modalDetailsDots">{(isLangUa) ? 'Початок дороги км, м ' : 'Road start ' }<span>{routeDetailsDots[0]}</span> </div>
+                        <div  className="modalDetailsDots">{(isLangUa) ?'Кінець дороги км, м ' : 'Road end '}<span>{routeDetailsDots[routeDetailsDots.length - 1]}</span> </div>
                         <div className="routeDetailsOwners">
-                            { (!routeDetailsOwners.length) ?
+                            { (routeDetailsOwners.length) ?
                                 (
                                     <div>
                                         <table>
                                             <thead>
                                                 <tr>
                                                     <th>
-                                                        { (language === 'uk') ? 'Від км+ ' : 'From km+ ' }
+                                                        { (isLangUa) ? 'Від км+ ' : 'From km+ ' }
                                                     </th>
                                                     <th>
-                                                        { (language === 'uk') ? 'До км+ ' : 'To km+ ' }
+                                                        { (isLangUa) ? 'До км+ ' : 'To km+ ' }
                                                     </th>
                                                     <th>
-                                                        { (language === 'uk') ? 'Підпорядкування ' : 'Subordination ' }
+                                                        { (isLangUa) ? 'Підпорядкування ' : 'Subordination ' }
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -119,33 +120,33 @@ class DetailsRoad extends Component {
                 <div className="detailsNav">
 
                     <p><span>{routeDetailsSc} </span>{routeDetailsName}</p>
-                    <button className="btn-about" onClick={()=>{this.setState({modalOpen: true})}}>{ (language === 'uk') ? 'Про дорогу ' : 'About road ' }</button>
-                    <Link to="/" className="linkHome">{ (language === 'uk') ? 'На головну ' : 'Main page ' }</Link>
+                    <button className="btn-about" onClick={()=>{this.setState({modalOpen: true})}}>{ (isLangUa) ? 'Про дорогу ' : 'About road ' }</button>
+                    <Link to="/" className="linkHome">{ (isLangUa) ? 'На головну ' : 'Main page ' }</Link>
                 </div>
                 <div>
                     <div>
-                        <h3>{ (language === 'uk') ? 'Пошук за координатами ' : 'Search by coordinates ' }</h3>
+                        <h3>{ (isLangUa) ? 'Пошук за координатами ' : 'Search by coordinates ' }</h3>
                         <div className="form-wrap">
                             <form name="search-coords">
                                 <div className="inputs-group">
                                     <label>Lat <input type="text"/></label>
                                     <label>Long <input type="text"/></label>
                                 </div>
-                                <button className="search-btn"><i className="fas fa-search"/>{ (language === 'uk') ? 'Шукаты' : 'Search'}</button>
+                                <button className="search-btn"><i className="fas fa-search"/>{ (isLangUa) ? 'Шукаты' : 'Search'}</button>
                             </form>
                         </div>
                     </div>
                     <div>
-                        <h3>{ (language === 'uk') ? 'Пошук за кілометровою прив\'язкою (км+)' : 'Search by kilometer bound (km +)'}</h3>
+                        <h3>{ (isLangUa) ? 'Пошук за кілометровою прив\'язкою (км+)' : 'Search by kilometer bound (km +)'}</h3>
                         <div className="form-wrap">
                             <p>
-                                * { (language === 'uk') ? 'для пошуку введіть значення через десятковий роздільник' : 'enter a decimal point to search'}
+                                * { (isLangUa) ? 'для пошуку введіть значення через десятковий роздільник' : 'enter a decimal point to search'}
                             </p>
                             <form name="search-distance">
                                 <div className="inputs-group">
-                                    <label>{ (language === 'uk') ? 'KM, M ' : 'km, m' }<input type="text"/></label>
+                                    <label>{ (isLangUa) ? 'KM, M ' : 'km, m' }<input type="text"/></label>
                                 </div>
-                                <button className="search-btn"><i className="fas fa-search"/>{ (language === 'uk') ? 'Шукаты' : 'Search'}</button>
+                                <button className="search-btn"><i className="fas fa-search"/>{ (isLangUa) ? 'Шукаты' : 'Search'}</button>
                             </form>
                         </div>
                     </div>
