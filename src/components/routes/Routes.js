@@ -9,8 +9,9 @@ import CategoryPage from "../category-page";
 import DetailsRoad from "../details-road";
 
 const Routes = (props) => {
+
     return(
-        <Layout user={props.user}>
+        <Layout user={props.user} lang={props.lang} toggleLang={props.toggleLang}>
             <Switch>
                 <PublicRoute {...props} restricted={false} path="/" exact component={Home}/>
                 <PublicRoute {...props} restricted={false} path="/categories/:id" exact component={CategoryPage}/>

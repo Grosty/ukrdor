@@ -6,8 +6,6 @@ import RoadApiService from "../../services/roadapi-service";
 
 class DetailsRoad extends Component {
 
-    roadApiService = new RoadApiService();
-
     state= {
         routeDetailsId: null,
         routeDetailsType: '',
@@ -15,8 +13,11 @@ class DetailsRoad extends Component {
         routeDetailsSc: '',
         routeDetailsDots: [],
         routeDetailsOwners: [],
-        modalOpen: false
+        modalOpen: false,
+        language: this.props.lang
     };
+
+    roadApiService = new RoadApiService(this.state.language);
 
     componentDidMount() {
 
@@ -54,6 +55,7 @@ class DetailsRoad extends Component {
             routeDetailsDots,
             routeDetailsOwners,
             modalOpen,
+            language
         } = this.state;
 
         // const tBody = routeDetailsOwners.map((item)=>{
@@ -61,6 +63,8 @@ class DetailsRoad extends Component {
         // });
 
         return (
+            
+
             <section className="container details-road">
 
                 <div className={ (modalOpen) ? 'modalDetails' : 'modalDetails modalDetailsHide'  }>
@@ -70,8 +74,8 @@ class DetailsRoad extends Component {
                             <span>{routeDetailsSc}</span>
                             {routeDetailsName} </div>
                         <div  className="modalDetailsType">{routeDetailsType}</div>
-                        <div  className="modalDetailsDots">Початок дороги км, м <span>{routeDetailsDots[0]}</span> </div>
-                        <div  className="modalDetailsDots">Кінець дороги км, м <span>{routeDetailsDots[routeDetailsDots.length - 1]}</span> </div>
+                        <div  className="modalDetailsDots">{(language === 'uk') ? 'Початок дороги км, м' : 'Road start ' }<span>{routeDetailsDots[0]}</span> </div>
+                        <div  className="modalDetailsDots">{(language === 'uk') ?'Кінець дороги км, м ' : 'Road end '}<span>{routeDetailsDots[routeDetailsDots.length - 1]}</span> </div>
                         <div className="routeDetailsOwners">
                             { (!routeDetailsOwners.length) ?
                                 (
@@ -80,13 +84,13 @@ class DetailsRoad extends Component {
                                             <thead>
                                                 <tr>
                                                     <th>
-                                                        Від км+
+                                                        { (language === 'uk') ? 'Від км+ ' : 'From km+ ' }
                                                     </th>
                                                     <th>
-                                                        До км+
+                                                        { (language === 'uk') ? 'До км+ ' : 'To km+ ' }
                                                     </th>
                                                     <th>
-                                                        Підпорядкування
+                                                        { (language === 'uk') ? 'Підпорядкування ' : 'Subordination ' }
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -115,33 +119,33 @@ class DetailsRoad extends Component {
                 <div className="detailsNav">
 
                     <p><span>{routeDetailsSc} </span>{routeDetailsName}</p>
-                    <button className="btn-about" onClick={()=>{this.setState({modalOpen: true})}}>Про дорогу</button>
-                    <Link to="/" className="linkHome">На головну</Link>
+                    <button className="btn-about" onClick={()=>{this.setState({modalOpen: true})}}>{ (language === 'uk') ? 'Про дорогу ' : 'About road ' }</button>
+                    <Link to="/" className="linkHome">{ (language === 'uk') ? 'На головну ' : 'Main page ' }</Link>
                 </div>
                 <div>
                     <div>
-                        <h3>Пошук за координатами</h3>
+                        <h3>{ (language === 'uk') ? 'Пошук за координатами ' : 'Search by coordinates ' }</h3>
                         <div className="form-wrap">
                             <form name="search-coords">
                                 <div className="inputs-group">
                                     <label>Lat <input type="text"/></label>
                                     <label>Long <input type="text"/></label>
                                 </div>
-                                <button className="search-btn"><i className="fas fa-search"/>Шукаты</button>
+                                <button className="search-btn"><i className="fas fa-search"/>{ (language === 'uk') ? 'Шукаты' : 'Search'}</button>
                             </form>
                         </div>
                     </div>
                     <div>
-                        <h3>Пошук за кілометровою прив'язкою (км+)</h3>
+                        <h3>{ (language === 'uk') ? 'Пошук за кілометровою прив\'язкою (км+)' : 'Search by kilometer bound (km +)'}</h3>
                         <div className="form-wrap">
                             <p>
-                                * для пошуку введіть значення через десятковий роздільник
+                                * { (language === 'uk') ? 'для пошуку введіть значення через десятковий роздільник' : 'enter a decimal point to search'}
                             </p>
                             <form name="search-distance">
                                 <div className="inputs-group">
-                                    <label>KM, M <input type="text"/></label>
+                                    <label>{ (language === 'uk') ? 'KM, M ' : 'km, m' }<input type="text"/></label>
                                 </div>
-                                <button className="search-btn"><i className="fas fa-search"/>Шукаты</button>
+                                <button className="search-btn"><i className="fas fa-search"/>{ (language === 'uk') ? 'Шукаты' : 'Search'}</button>
                             </form>
                         </div>
                     </div>

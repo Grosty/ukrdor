@@ -9,7 +9,8 @@ import "./layout.css";
 class Layout extends Component {
 
     state = {
-        showNav: false
+        showNav: false,
+        lang: this.props.lang
     };
 
     toggleSidenav = (action) => {
@@ -21,7 +22,7 @@ class Layout extends Component {
     render() {
         return(
             <React.Fragment>
-                <Header />
+                <Header {...this.state} {...this.props} />
                 {this.props.children}
                 <Footer/>
             </React.Fragment>

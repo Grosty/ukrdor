@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 
 class Home extends Component {
 
-    roadApiService = new RoadApiService();
-
     state = {
-        categoriesArr: null
+        categoriesArr: [],
+        language: this.props.lang
     };
+
+
+    roadApiService = new RoadApiService(this.state.language);
 
     componentDidMount() {
         this.roadApiService
@@ -33,6 +35,7 @@ class Home extends Component {
         });
     }
 
+
     render() {
 
         if(!this.state.categoriesArr) {
@@ -41,11 +44,11 @@ class Home extends Component {
             );
         }
 
-        const {categoriesArr} = this.state;
+        const {categoriesArr, language} = this.state;
+
+        console.log(language, 'home');
 
         categoriesArr.sort((a, b)=> a.id - b.id);
-
-        console.log(categoriesArr);
 
         const RenderedCategoriesArr = categoriesArr.map(({id, name, r10})=>{
 
@@ -56,7 +59,7 @@ class Home extends Component {
                     <ul >{routes}</ul>
                     <div className="btn-wrap">
                         <Link to={`/categories/${id}`}>
-                            <span>розгорнути список</span>
+                            <span>{(language === 'uk') ? 'розгорнути список' : 'more details'}</span>
                         </Link>
                     </div>
 

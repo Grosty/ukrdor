@@ -6,7 +6,7 @@ import "./index.css";
 
 ReactDOM.render(
 
-        <App user={null}/>
+        <App/>
 
 , document.getElementById('root'));
 
