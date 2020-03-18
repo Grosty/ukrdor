@@ -177,5 +177,11 @@
     width: 20px;
     height: 20px;
 }
+/*-------Search response--------*/
+
+.search-response {
+    border: 2px solid #00f;
+    padding: 20px 0;
+}
 
 
