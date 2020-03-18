@@ -66,6 +66,16 @@ class DetailsRoad extends Component {
         }
     };
 
+    clearSearch = () => {
+        document.getElementById('userKmSearch').value = '';
+        document.getElementById('lat').value = '';
+        document.getElementById('long').value = '';
+        this.setState({
+            userCoords: null,
+            userKmSearch: null
+        });
+    };
+
     render() {
 
         const {
@@ -228,7 +238,13 @@ class DetailsRoad extends Component {
                 </div>
                 {/* ----------- Searc Response ---------- */}
 
-                {(this.state.userCoords || this.state.userKmSearch) ? <DetailsRoadSearch {...this.props} id={this.state.routeDetailsId} userCoords={this.state.userCoords} userKmSearch={this.state.userKmSearch} /> : <h3>No coords</h3>}
+                {(this.state.userCoords || this.state.userKmSearch) ?
+                    (<React.Fragment>
+                            <DetailsRoadSearch {...this.props} id={this.state.routeDetailsId} userCoords={this.state.userCoords} userKmSearch={this.state.userKmSearch} />
+                            <button onClick={()=>{this.clearSearch()}}>Очистити пошук</button>
+                        </React.Fragment>
+                        ) :
+                    null}
                 {/*<DetailsRoadSearch {...this.props} userCoords={this.state.userCoords}/>*/}
                 {/* --------- End Search Response  ------- */}
             </section>

@@ -82,16 +82,14 @@ class DetailsRoadSearch extends Component {
             userCoords,
             userKmPlus,
             detail,
-            status
+            status,
+            error
         } = this.state;
 
 
-        if (!status) {
-            return <h3>No match</h3>
-        }
-        if (this.state.error) {
+        if (error) {
             return (
-                <h3>Совпадений не найдено</h3>
+                <h3>Неверный ввод</h3>
             );
         }
 
@@ -103,6 +101,7 @@ class DetailsRoadSearch extends Component {
             responseDetail = detail.map(({id, name, sc, ut, kmp, coord = [], distance = 0}) => {
                 return (
                     <div key={id}>
+                        {(userCoords) ? <h3>Результати пошуку за координатами</h3> : <h3>Результати пошуку за км+</h3>}
                         <p>name: {name}</p>
                         <p>sc: {sc}</p>
                         <p>ut: {ut}</p>
