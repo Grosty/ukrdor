@@ -2,6 +2,13 @@
 }
 .header-top {
     background-color: #00264b;
+    display: flex;
+    align-items: center;
+}
+.header-top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .header-lang-wrap {
     display: flex;
@@ -48,3 +55,14 @@
     max-width: 36px;
 }
 .icons-wrap {}
+.headerSearch input {
+    padding: 5px 20px;
+    min-width: 100px;
+    border-radius: 15px;
+    outline: none;
+    margin-right: 10px;
+}
+.headerSearch a {
+    color: #fff;
+    text-decoration: none;
+}

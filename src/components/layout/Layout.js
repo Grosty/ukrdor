@@ -10,7 +10,7 @@ class Layout extends Component {
 
     state = {
         showNav: false,
-        lang: this.props.lang
+        lang: this.props.lang,
     };
 
     toggleSidenav = (action) => {

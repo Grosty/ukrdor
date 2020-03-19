@@ -39,13 +39,24 @@ export default class RoadApiService {
         }
     };
 
+    async getSearchInput(searchURL) {
+        const routeSearch = await this.getResource(`/route_search/${searchURL}`);
+        return this._transformSearchInput(routeSearch);
+    }
+
+    _transformSearchInput = (routeSearch) => {
+
+        return {
+            data: routeSearch.data,
+        }
+    };
+
     async getUserKmPlus(km, id) {
         const routeCoords = await this.getResource(`/kmp/${id}/${km}`);
         return this._transformUserKmPlus(routeCoords, km);
     }
 
     _transformUserKmPlus = (routeCoords, km) => {
-        // console.dir(categories);
         return {
             status: routeCoords.status,
             detail: routeCoords.detail[km]
@@ -58,7 +69,6 @@ export default class RoadApiService {
     }
 
     _transformCoordinates = (routeCoords, coords) => {
-        // console.dir(categories);
         return {
             status: routeCoords.status,
             detail: routeCoords.detail[coords]

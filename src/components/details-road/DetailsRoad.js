@@ -101,8 +101,6 @@ class DetailsRoad extends Component {
             );
         });
 
-        let {userCoords} = this.state;
-
 
         return (
 

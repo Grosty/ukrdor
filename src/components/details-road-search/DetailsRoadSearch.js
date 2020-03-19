@@ -18,13 +18,13 @@ class DetailsRoadSearch extends Component {
 
     getUpdate () {
         // const {userCoords} = this.props;
-        const searchInput = this.props.userKmSearch || this.props.userCoords;
+
         const {userCoords, userKmSearch} = this.props;
 
 
         if(this.props.userKmSearch) {
             this.roadApiService
-                .getUserKmPlus(this.props.userKmSearch, this.state.id)
+                .getUserKmPlus(userKmSearch, this.state.id)
                 .then(({detail, status}) => {
                         this.setState({
                             detail: [detail],
@@ -78,11 +78,8 @@ class DetailsRoadSearch extends Component {
     render() {
 
         const {
-            language,
             userCoords,
-            userKmPlus,
             detail,
-            status,
             error
         } = this.state;
 

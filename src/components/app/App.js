@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from "react-router-dom";
+import SearchContext from "./SearchContext";
 
 import './app.css';
 import Routes from "../routes";
+
+
 
 
 class App extends Component {
 
     state = {
         user: null,
-        lang: 'uk'
+        lang: 'uk',
+        searchInput: 'M-01',
     };
 
     toggleLang = (lang) => {
@@ -18,11 +22,19 @@ class App extends Component {
         });
     };
 
+    toggleSearch = (searchInput) => {
+        this.setState({searchInput});
+    };
+
     render() {
+
         return (
-            <BrowserRouter >
-                <Routes {...this.state} toggleLang={this.toggleLang}/>
-            </BrowserRouter>
+            <SearchContext.Provider value={this.state.searchInput}>
+                <BrowserRouter >
+                    <Routes {...this.state} toggleLang={this.toggleLang} toggleSearch={this.toggleSearch}/>
+                </BrowserRouter>
+            </SearchContext.Provider>
+
         );
     }
 
