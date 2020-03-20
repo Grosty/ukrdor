@@ -18,7 +18,7 @@ class DetailsRoadSearch extends Component {
 
     getUpdate () {
         // const {userCoords} = this.props;
-
+        // const searchInput = this.props.userKmSearch || this.props.userCoords;
         const {userCoords, userKmSearch} = this.props;
 
 
@@ -60,17 +60,23 @@ class DetailsRoadSearch extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.userCoords !== this.props.userCoords &&
-            prevProps.userKmPlus !== this.props.userKmSearch) {
+        if(prevProps.userKmSearch !== this.props.userKmSearch) {
             this.getUpdate();
         }
-
-        if (this.state.detail === undefined && prevState.detail !== this.state.detail) {
-            this.setState({
-                error: true,
-                detail: []
-            });
+        if (prevProps.userCoords !== this.props.userCoords) {
+            this.getUpdate();
         }
+        // if(prevProps.userCoords !== this.props.userCoords &&
+        //     prevProps.userKmPlus !== this.props.userKmSearch) {
+        //     this.getUpdate();
+        // }
+        //
+        // if (this.state.detail === undefined && prevState.detail !== this.state.detail) {
+        //     this.setState({
+        //         error: true,
+        //         detail: []
+        //     });
+        // }
 
     }
 
@@ -93,7 +99,6 @@ class DetailsRoadSearch extends Component {
         // const isLangUa = (language === 'uk') && true;
         let responseDetail = [];
 
-
         if ( detail) {
             responseDetail = detail.map(({id, name, sc, ut, kmp, coord = [], distance = 0}) => {
                 return (
@@ -106,6 +111,7 @@ class DetailsRoadSearch extends Component {
                         <p>Long: {coord[0]}</p>
                         <p>km: {kmp}</p>
                         {(userCoords) ? <p>distance: {distance}</p> : null}
+                        <p><a href={`https://www.google.com.ua/maps/?q=${coord[coord.length - 1]},${coord[0]}`} rel="noopener noreferrer" target="_blank">На карте</a></p>
 
                     </div>
                 );

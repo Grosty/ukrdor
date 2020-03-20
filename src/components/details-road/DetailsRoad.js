@@ -176,9 +176,9 @@ class DetailsRoad extends Component {
                             <form name="search-coords">
                                 <div
                                     className="inputs-group">
-                                    <label>Lat 30.73839863<input
+                                    <label>Lat 50.4897829<input
                                         type="text" id='lat'/></label>
-                                    <label>Long 50.4897829<input
+                                    <label>Long 30.73839863<input
                                         type="text" id='long'/></label>
                                 </div>
                                 <button
@@ -191,7 +191,7 @@ class DetailsRoad extends Component {
 
                                         let newUserCoords = null;
                                         if (lat && long) {
-                                            newUserCoords = (lat + ',' + long);
+                                            newUserCoords = (long + ',' + lat);
                                         }
                                         // this.setState({userCoords});
                                         this.setState({userCoords: newUserCoords, userKmSearch: null});

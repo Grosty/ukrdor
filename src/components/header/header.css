@@ -1,4 +1,19 @@
-.header {
+.headerSearch a,
+.header button {
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    min-width: 60px;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 30px;
+    background-color: transparent;
+    transition: all 0.3s ease-out;
+}
+.headerSearch a:hover,
+.header button:hover{
+    border-color: burlywood;
+    color: burlywood;
 }
 .header-top {
     background-color: #00264b;
@@ -55,14 +70,31 @@
     max-width: 36px;
 }
 .icons-wrap {}
+.headerSearch {
+    display: flex;
+    align-items: center;
+}
 .headerSearch input {
     padding: 5px 20px;
     min-width: 100px;
     border-radius: 15px;
     outline: none;
     margin-right: 10px;
+    cursor: pointer;
 }
+.headerSearch input:hover {
+    border-color: burlywood;
+}
+.headerSearch input:focus {
+    border-color: coral;
+}
+
+
 .headerSearch a {
     color: #fff;
     text-decoration: none;
+    border: 2px solid #fff;
+    padding: 2px 5px;
+    border-radius: 15px;
+    cursor: pointer;
 }
