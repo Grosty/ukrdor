@@ -102,7 +102,7 @@ class DetailsRoadSearch extends Component {
         if ( detail) {
             responseDetail = detail.map(({id, name, sc, ut, kmp, coord = [], distance = 0}) => {
                 return (
-                    <div key={id}>
+                    <div key={id} className="search-response-wrap">
                         {(userCoords) ? <h3>Результати пошуку за координатами</h3> : <h3>Результати пошуку за км+</h3>}
                         <p>name: {name}</p>
                         <p>sc: {sc}</p>
