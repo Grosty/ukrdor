@@ -9,6 +9,7 @@ import PublicRoute from "../public-route";
 import CategoryPage from "../category-page";
 import DetailsRoad from "../details-road";
 import SearchPage from "../search-page";
+import ProfilePage from "../ProfilePage";
 
 const Routes = (props) => {
 
@@ -36,6 +37,7 @@ const Routes = (props) => {
                                  path='/route_search/:idUrl'
                                  exact
                                  component={SearchPage}/>
+                    <Route path='/profile/' exact component={ProfilePage}/>
                     <Route path='/route_search/' render={()=> {return(<div className="container"><h3>Enter search input</h3></div>)}} />
                 </Switch>
             </Layout>

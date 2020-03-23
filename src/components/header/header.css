@@ -32,6 +32,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .header-lang-wrap button {
     margin-left: 10px;
 }
@@ -97,4 +98,10 @@
     padding: 2px 5px;
     border-radius: 15px;
     cursor: pointer;
+}
+.header-lang-wrap i {
+    color: #fff;
+}
+.header-lang-wrap i:hover {
+    color: burlywood;;
 }

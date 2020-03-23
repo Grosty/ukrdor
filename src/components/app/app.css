@@ -21,6 +21,61 @@ h2 {
     letter-spacing: 0.0625rem;
 }
 
+.userProfileForm form .inputLine{
+    margin-bottom: 10px;
+    transition: all 0.2s ease-out;
+}
+.userProfileForm form label {
+    display: inline-block;
+    min-width: 100px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+.userProfileForm form .inputLine:hover label {
+    text-indent: 5px;
+    color: lightsalmon;
+}
+.userProfileForm input {
+    border: 2px solid lightblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+    min-width: 300px;
+    outline: none;
+    transition: all 0.2s ease-out;
+}
+
+.userProfileForm form .inputLine:hover input {
+    border: 2px solid lightsalmon;
+}
+.userProfileForm form .inputLine input:focus {
+    border: 2px solid blue;
+}
+.userProfileForm button {
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #00f;
+    background-color: #00f;
+    color: #fff;
+    border-radius: 15px;
+    transition: all 0.2s ease-out;
+}
+.userProfileForm button:hover {
+    border: 2px solid #00f;
+    background-color: #fff;
+    color: #00f;
+}
+.userProfileForm button:active {
+    outline: none;
+    background-color: #fff;
+    color: burlywood;
+    border-color: burlywood;
+}
+.userProfileForm button:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 1660px) {
     .container {
         padding: 0 20px;
