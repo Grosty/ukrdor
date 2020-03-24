@@ -10,8 +10,6 @@ export default class RoadApiService {
     // langEn = 'en';
     // language = 'uk';
 
-    //https://kmplus.shtab.net/api/v1/wgs84/30.73839863,50.4897829
-
     getResource =  async (url, lang = this.language) => {
         // const res = await fetch(`${this._apiBase}${url}`,
         //     {
@@ -30,7 +28,8 @@ export default class RoadApiService {
             const res = await fetch(`${this._apiBase}${url}`,
                 {
                     headers: {
-                        'Accept-Language': lang}
+                        'Accept-Language': lang,
+                    }
                     }
                 );
             return await res.json();

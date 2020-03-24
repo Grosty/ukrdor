@@ -13,10 +13,17 @@ const Header = (props) => {
                 <div className='header-top-wrapper container'>
                     <HeaderSearch {...props}/>
                     <div className="header-lang-wrap">
+
+                        {
+                            (props.logged) ?
+                                <span style={{'color':'#fff'}}>Welcome, {props.user.fname}  </span> :
+                                <a href='https://kmplus.shtab.net/oauth/login/google-oauth2/' style={{'color':'#fff'}}>Login please </a>
+                        }
+
                         <Link to='/profile/'><i className="fas fa-user"/></Link>
-                        {/*<a href='https://kmplus.shtab.net/oauth/login/google-oauth2/'>Auth</a>*/}
                         <button onClick={()=>{props.toggleLang('uk')}}>Ua lang</button>
                         <button onClick={()=>{props.toggleLang('en')}}>En lang</button>
+
                     </div>
                 </div>
             </div>

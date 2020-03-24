@@ -3,22 +3,37 @@ import RoadApiService from "../../services/roadapi-service";
 import "./home.css";
 import {Link} from "react-router-dom";
 
+
+
 class Home extends Component {
 
+    _isMounted = false;
+
     state = {
+        isLoading: true,
         categoriesArr: [],
-        language: this.props.lang
+        language: this.props.lang,
     };
 
 
     roadApiService = new RoadApiService(this.state.language);
 
     componentDidMount() {
+        this._isMounted = true;
+
         this.roadApiService
             .getAllCategories()
             .then(({categoriesArr})=>{
-                this.setState({categoriesArr});
+                if (this._isMounted) {
+                    this.setState({
+                        categoriesArr,
+                        isLoading: false
+                    });
+                }
             });
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     renderCategoryArr (arr) {

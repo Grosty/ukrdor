@@ -1,19 +1,39 @@
 import React, {Component} from 'react';
+import GetUser from "../services/getUser";
 
 class ProfilePage extends Component {
+    _isMounted = false;
 
     state = {
+        isLoading: true,
+        lang: this.props.lang,
         userFirstName: '',
         userLastName: '',
         userPhone: '',
         userMail: '',
-        // btnDisabled: true
+        logged: false,
+        user: {}
     };
+
+    componentDidMount() {
+        this._isMounted = true;
+
+        if (this._isMounted) {
+            this.setState({
+                isLoading: false,
+                user: this.props.user,
+                logged: this.props.logged
+            })
+        }
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         // console.log(this.state.userPhone);
-
     }
+
 
     change = (e) => {
         let {type, name, value} = e.target;
@@ -28,10 +48,7 @@ class ProfilePage extends Component {
             return;
         }
 
-
-
-
-        this.setState({[name]: value});
+        this.setState({[name]: value.trim()});
     };
 
     submit = (e) => {
@@ -41,6 +58,8 @@ class ProfilePage extends Component {
 
     render() {
         const {userFirstName, userLastName, userPhone, userMail} = this.state;
+        const { user, logged } = this.state;
+        console.log(logged);
 
         return (
             <div className='container userProfileForm'>
@@ -64,6 +83,17 @@ class ProfilePage extends Component {
                     </div>
                     { (userFirstName && userLastName && userPhone ) ? <button>Отправить</button> : <p>Заполните коректно обязательные (*) поля формы</p>}
                 </form>
+                <hr/>
+                {
+                    logged &&
+                        <div>
+                            <p>Name: {user.fname} {user.lname}</p>
+                            <p>apiKey: {user.apikey}</p>
+                            <p>country: {user.country}</p>
+                            <p>email: {user.email}</p>
+                            <p>country: {user.country}</p>
+                        </div>
+                }
             </div>
         );
     }

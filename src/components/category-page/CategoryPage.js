@@ -4,25 +4,37 @@ import RenderRoutesList from "../RenderRoutesList";
 
 class CategoryPage extends Component {
 
+    _isMounted = false;
+
     roadApiService = new RoadApiService();
 
     state= {
+        isLoading: true,
         routesList: [],
         nameCategory: '',
 
     };
 
     componentDidMount() {
+        this._isMounted = true;
 
         const {id} = this.props.match.params;
 
         this.roadApiService
             .getCategoryRoute(id)
             .then(({routesList, nameCategory})=>{
-                this.setState({
-                    routesList, nameCategory
-                });
+                if (this._isMounted) {
+                    this.setState({
+                        routesList,
+                        nameCategory,
+                        isLoading: false
+                    });
+                }
             });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     // renderRoutesList(arr) {

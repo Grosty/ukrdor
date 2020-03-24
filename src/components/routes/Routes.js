@@ -15,7 +15,7 @@ const Routes = (props) => {
 
     return(
 
-            <Layout user={props.user} lang={props.lang}
+            <Layout user={props.user} lang={props.lang} logged={props.logged}
                     toggleLang={props.toggleLang}
                     toggleSearch={props.toggleSearch}>
                 <Switch>
@@ -37,7 +37,7 @@ const Routes = (props) => {
                                  path='/route_search/:idUrl'
                                  exact
                                  component={SearchPage}/>
-                    <Route path='/profile/' exact component={ProfilePage}/>
+                    <PublicRoute {...props} path='/profile/' exact component={ProfilePage}/>
                     <Route path='/route_search/' render={()=> {return(<div className="container"><h3>Enter search input</h3></div>)}} />
                 </Switch>
             </Layout>
