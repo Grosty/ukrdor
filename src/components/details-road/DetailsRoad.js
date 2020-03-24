@@ -239,7 +239,7 @@ class DetailsRoad extends Component {
                 {(this.state.userCoords || this.state.userKmSearch) ?
                     (<React.Fragment>
                             <DetailsRoadSearch {...this.props} id={this.state.routeDetailsId} userCoords={this.state.userCoords} userKmSearch={this.state.userKmSearch} />
-                            <button onClick={()=>{this.clearSearch()}}>Очистити пошук</button>
+                            <button onClick={this.clearSearch}>Очистити пошук</button>
                         </React.Fragment>
                         ) :
                     null}

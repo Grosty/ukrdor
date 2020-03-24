@@ -19,11 +19,11 @@ class ProfilePage extends Component {
         this._isMounted = true;
 
         if (this._isMounted) {
-            this.setState({
+            this.setState((state, props)=>({
                 isLoading: false,
-                user: this.props.user,
-                logged: this.props.logged
-            })
+                user: props.user,
+                logged: props.logged
+            }))
         }
     }
     componentWillUnmount() {
