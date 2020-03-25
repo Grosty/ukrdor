@@ -8,7 +8,10 @@ import DetailsRoadSearch from "../details-road-search";
 
 class DetailsRoad extends Component {
 
+    _isMounted = false;
+
     state = {
+        isLoading: true,
         routeDetailsId: null,
         routeDetailsType: '',
         routeDetailsName: '',
@@ -32,6 +35,8 @@ class DetailsRoad extends Component {
 
     componentDidMount() {
 
+        this._isMounted = true;
+
         const {id} = this.props.match.params;
 
         this.roadApiService
@@ -44,19 +49,24 @@ class DetailsRoad extends Component {
                        routeDetailsDots,
                        routeDetailsOwners
                    }) => {
-                this.setState({
-                    routeDetailsId,
-                    routeDetailsType,
-                    routeDetailsName,
-                    routeDetailsSc,
-                    routeDetailsDots,
-                    routeDetailsOwners
-                });
+                if(this._isMounted){
+                    this.setState({
+                        routeDetailsId,
+                        routeDetailsType,
+                        routeDetailsName,
+                        routeDetailsSc,
+                        routeDetailsDots,
+                        routeDetailsOwners
+                    });
+                }
             });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
 
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
 

@@ -5,6 +5,7 @@ import Header from "../header/Header";
 import Footer from "../footer";
 
 import "./layout.css";
+import ErrorBoundary from "../ErrorBoundary";
 
 class Layout extends Component {
 
@@ -23,7 +24,9 @@ class Layout extends Component {
         return(
             <React.Fragment>
                 <Header {...this.state} {...this.props} />
-                {this.props.children}
+                    <ErrorBoundary>
+                        {this.props.children}
+                    </ErrorBoundary>
                 <Footer/>
             </React.Fragment>
         )
